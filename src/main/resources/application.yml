@@ -1,0 +1,30 @@
+server:
+  port: 3022
+  servlet:
+    context-path: /api
+    session:
+      timeout: 60 # session超时时间 单位秒
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.196.238.114:3306/blog_dev?serverTimezone=UTC
+    username: root
+    password: wangQQ970726
+  application:
+    name: blog-service
+  # redis配置
+  redis:
+    host: 121.196.238.114
+    port: 6379
+    password: 149850
+
+
+
+# 配置MybatisPlus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
