@@ -8,7 +8,7 @@ import com.lazycomedian.blog.exception.BizException;
 import com.lazycomedian.blog.mapper.SysRoleMapper;
 import com.lazycomedian.blog.service.SysRoleService;
 import com.lazycomedian.blog.vo.PageResultVO;
-import com.lazycomedian.blog.vo.SysRoleQueryVO;
+import com.lazycomedian.blog.vo.QueryVO;
 import com.lazycomedian.blog.vo.SysRoleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,14 +29,13 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRoleEntity
     private SysRoleMapper sysRoleMapper;
 
     @Override
-    public PageResultVO<SysRoleEntity> queryList(SysRoleQueryVO roleQueryVO) {
-        Page<SysRoleEntity> page = new Page<>(roleQueryVO.getCurrent(), roleQueryVO.getPageSize());
+    public PageResultVO<SysRoleEntity> queryList(QueryVO queryVO) {
+        Page<SysRoleEntity> page = new Page<>(queryVO.getCurrent(), queryVO.getPageSize());
         LambdaQueryWrapper<SysRoleEntity> queryWrapper = new LambdaQueryWrapper<SysRoleEntity>()
-                .eq(Objects.nonNull(roleQueryVO.getStatus()), SysRoleEntity::getStatus, roleQueryVO.getStatus())
-                .like(Objects.nonNull(roleQueryVO.getRoleName()), SysRoleEntity::getRoleName, roleQueryVO.getRoleName());
+                .eq(Objects.nonNull(queryVO.getStatus()), SysRoleEntity::getStatus, queryVO.getStatus())
+                .like(Objects.nonNull(queryVO.getContent()), SysRoleEntity::getRoleName, queryVO.getContent());
 
-        final Page<SysRoleEntity> selectPage = sysRoleMapper.selectPage(page, queryWrapper);
-        return new PageResultVO<>(selectPage.getRecords(), selectPage.getTotal(), selectPage.getCurrent(), selectPage.getSize());
+        return PageResultVO.factory(sysRoleMapper.selectPage(page, queryWrapper));
     }
 
     @Override

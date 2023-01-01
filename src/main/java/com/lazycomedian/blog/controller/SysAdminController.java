@@ -4,8 +4,8 @@ import com.lazycomedian.blog.dto.SysAdminDTO;
 import com.lazycomedian.blog.entity.SysAdminEntity;
 import com.lazycomedian.blog.service.SysAdminService;
 import com.lazycomedian.blog.vo.PageResultVO;
+import com.lazycomedian.blog.vo.QueryVO;
 import com.lazycomedian.blog.vo.ResultVO;
-import com.lazycomedian.blog.vo.SysAdminQueryVO;
 import com.lazycomedian.blog.vo.SysAdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,10 +40,12 @@ public class SysAdminController {
 
     /**
      * 条件查询管理员列表
+     *
+     * @param queryVO 查询条件
      */
     @GetMapping("/queryList")
-    public ResultVO<PageResultVO<SysAdminDTO>> queryList(SysAdminQueryVO userQueryVO) {
-        return ResultVO.success(sysAdminService.queryList(userQueryVO));
+    public ResultVO<PageResultVO<SysAdminDTO>> queryList(QueryVO queryVO) {
+        return ResultVO.success(sysAdminService.queryList(queryVO));
     }
 
     /**

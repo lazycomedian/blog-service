@@ -3,7 +3,7 @@ package com.lazycomedian.blog.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lazycomedian.blog.entity.SysRoleEntity;
 import com.lazycomedian.blog.vo.PageResultVO;
-import com.lazycomedian.blog.vo.SysRoleQueryVO;
+import com.lazycomedian.blog.vo.QueryVO;
 import com.lazycomedian.blog.vo.SysRoleVO;
 
 /**
@@ -19,7 +19,7 @@ public interface SysRoleService extends IService<SysRoleEntity> {
      *
      * @param roleQueryVO 查询参数
      */
-    PageResultVO<SysRoleEntity> queryList(SysRoleQueryVO roleQueryVO);
+    PageResultVO<SysRoleEntity> queryList(QueryVO queryVO);
 
 
     /**

@@ -6,23 +6,23 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 管理员列表查询模型
+ * 通用查询模型
  *
  * @author lazyComedian
- * @date 2022/12/06 10:29
+ * @date 2022/12/31 15:58
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class SysAdminQueryVO extends PageVO {
+public class QueryVO extends PageVO {
     /**
-     * 管理员名称
+     * 查询内容
      */
-    private String nickname;
+    private String content;
 
     /**
-     * 状态 0：不可用 1:可用
+     * 状态 0:不可用 1:可用
      */
     private Integer status;
 }

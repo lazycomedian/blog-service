@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.lazycomedian.blog.dto.SysAdminDTO;
 import com.lazycomedian.blog.entity.SysAdminEntity;
 import com.lazycomedian.blog.vo.PageResultVO;
-import com.lazycomedian.blog.vo.SysAdminQueryVO;
+import com.lazycomedian.blog.vo.QueryVO;
 import com.lazycomedian.blog.vo.SysAdminVO;
 
 import java.util.List;
@@ -25,9 +25,9 @@ public interface SysAdminService extends IService<SysAdminEntity> {
     /**
      * 条件查询管理员列表
      *
-     * @param adminQueryVO 查询参数
+     * @param queryVO 查询参数
      */
-    PageResultVO<SysAdminDTO> queryList(SysAdminQueryVO adminQueryVO);
+    PageResultVO<SysAdminDTO> queryList(QueryVO queryVO);
 
     /**
      * 新增或修改管理员

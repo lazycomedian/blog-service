@@ -3,8 +3,8 @@ package com.lazycomedian.blog.controller;
 import com.lazycomedian.blog.entity.SysRoleEntity;
 import com.lazycomedian.blog.service.SysRoleService;
 import com.lazycomedian.blog.vo.PageResultVO;
+import com.lazycomedian.blog.vo.QueryVO;
 import com.lazycomedian.blog.vo.ResultVO;
-import com.lazycomedian.blog.vo.SysRoleQueryVO;
 import com.lazycomedian.blog.vo.SysRoleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,11 +36,11 @@ public class SysRoleController {
     /**
      * 条件查询角色列表
      *
-     * @param roleQuery 查询条件
+     * @param queryVO 查询条件
      */
     @GetMapping("/queryList")
-    public ResultVO<PageResultVO<SysRoleEntity>> queryList(SysRoleQueryVO roleQuery) {
-        final PageResultVO<SysRoleEntity> result = sysRoleService.queryList(roleQuery);
+    public ResultVO<PageResultVO<SysRoleEntity>> queryList(QueryVO queryVO) {
+        final PageResultVO<SysRoleEntity> result = sysRoleService.queryList(queryVO);
         return ResultVO.success(result);
     }
 

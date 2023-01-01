@@ -36,7 +36,7 @@ public class SysRoleEntity extends BaseEntity {
     private String roleLabel;
 
     /**
-     * 状态 0：不可用 1:可用
+     * 状态 0:不可用 1:可用
      */
     private Integer status;
 

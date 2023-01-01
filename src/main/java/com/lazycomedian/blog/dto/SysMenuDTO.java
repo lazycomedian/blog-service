@@ -6,37 +6,49 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
- * 管理员数据模型
+ * 用户菜单模型
  *
  * @author lazyComedian
- * @date 2022/12/05 23:57
+ * @date 2022/12/31 14:24
  **/
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class SysAdminDTO {
+public class SysMenuDTO {
     /**
      * 主键
      */
     private Integer id;
 
     /**
-     * 管理员账号
+     * 名称
      */
-    private String username;
+    private String name;
 
     /**
-     * 管理员名称
+     * 路由
      */
-    private String nickname;
+    private String path;
 
     /**
-     * 密码
+     * 组件路径
      */
-    private String password;
+    private String component;
+
+    /**
+     * 图标
+     */
+    private String icon;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
+
 
     /**
      * 状态 0:不可用 1:可用
@@ -47,4 +59,9 @@ public class SysAdminDTO {
      * 创建时间
      */
     private LocalDateTime createTime;
+
+    /**
+     * 子菜单列表
+     */
+    private List<SysMenuDTO> children;
 }

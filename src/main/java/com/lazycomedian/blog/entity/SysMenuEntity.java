@@ -6,18 +6,18 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
 /**
- * 管理员实体类
+ * 菜单实体类
  *
  * @author lazyComedian
- * @date 2022/12/03 17:40
+ * @date 2022/12/29 17:46
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = false)
-@TableName("sys_admin")
-public class SysAdminEntity extends BaseEntity {
+@TableName("sys_menu")
+public class SysMenuEntity extends BaseEntity {
     /**
      * 主键
      */
@@ -25,19 +25,34 @@ public class SysAdminEntity extends BaseEntity {
     private Integer id;
 
     /**
-     * 管理员账号
+     * 名称
      */
-    private String username;
+    private String name;
 
     /**
-     * 管理员名称
+     * 路由
      */
-    private String nickname;
+    private String path;
 
     /**
-     * 密码
+     * 组件路径
      */
-    private String password;
+    private String component;
+
+    /**
+     * 图标
+     */
+    private String icon;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
+
+    /**
+     * 父级id
+     */
+    private Integer pid;
 
     /**
      * 状态 0:不可用 1:可用

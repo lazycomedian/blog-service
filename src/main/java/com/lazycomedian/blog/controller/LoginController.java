@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
- * 用户登录模块
+ * 登录管理模块
  *
  * @author lazyComedian
  * @date 2022/12/03 17:40

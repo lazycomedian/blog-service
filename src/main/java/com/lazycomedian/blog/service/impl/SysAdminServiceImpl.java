@@ -8,7 +8,7 @@ import com.lazycomedian.blog.entity.SysAdminEntity;
 import com.lazycomedian.blog.mapper.SysAdminMapper;
 import com.lazycomedian.blog.service.SysAdminService;
 import com.lazycomedian.blog.vo.PageResultVO;
-import com.lazycomedian.blog.vo.SysAdminQueryVO;
+import com.lazycomedian.blog.vo.QueryVO;
 import com.lazycomedian.blog.vo.SysAdminVO;
 import io.jsonwebtoken.lang.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +36,12 @@ public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdminEnt
     }
 
     @Override
-    public PageResultVO<SysAdminDTO> queryList(SysAdminQueryVO adminQueryVO) {
-        final Page<SysAdminEntity> page = new Page<>(adminQueryVO.getCurrent(), adminQueryVO.getPageSize());
+    public PageResultVO<SysAdminDTO> queryList(QueryVO queryVO) {
+        final Page<SysAdminEntity> page = new Page<>(queryVO.getCurrent(), queryVO.getPageSize());
 
         final LambdaQueryWrapper<SysAdminEntity> queryWrapper = new LambdaQueryWrapper<SysAdminEntity>()
-                .eq(Objects.nonNull(adminQueryVO.getStatus()), SysAdminEntity::getStatus, adminQueryVO.getStatus())
-                .like(Strings.hasText(adminQueryVO.getNickname()), SysAdminEntity::getNickname, adminQueryVO.getNickname());
+                .eq(Objects.nonNull(queryVO.getStatus()), SysAdminEntity::getStatus, queryVO.getStatus())
+                .like(Strings.hasText(queryVO.getContent()), SysAdminEntity::getNickname, queryVO.getContent());
 
         final Page<SysAdminEntity> selectPage = sysAdminMapper.selectPage(page, queryWrapper);
 
